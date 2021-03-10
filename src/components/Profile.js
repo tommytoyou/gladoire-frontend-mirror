@@ -41,6 +41,11 @@ const Profile = (props) => {
        <p>Email: {userEmail}</p>
        <p>YT URLs: {bg_urls}</p>
        <p>Privacy Enabled: {privacyMode}</p>
+       <label htmlFor={"privacy"}>Privacy Mode</label>
+       <select name={"privacy"} >
+           <option value={0} selected={privacyMode == 0}>Off</option>
+           <option value={1} selected={privacyMode == 1}>On</option>
+       </select>
    </div>) : <h2>Loading...</h2>
 
     const errorDiv = () => {
