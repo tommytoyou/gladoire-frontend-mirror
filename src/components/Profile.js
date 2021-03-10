@@ -19,6 +19,9 @@ const Profile = (props) => {
        handleLogout();
        alert('Session has ended. Please login to continue.');
    }
+
+   //Get the user profile information from the backend API
+    //and load it into state.  This is called from the useEffect below it
     const getUserInfo = async()=>{
         let userData = await axios.get(`${REACT_APP_SERVER_URL}/users/profile`)
         setDisplayName(userData.data.display_name)
@@ -29,16 +32,27 @@ const Profile = (props) => {
 
     }
 
+   //when page loads, get the user information and populate state.
+    //In class, they defined the function inside the useEffect, and I found that to be less than optimal at times
+    //so now I define the function outside of useEffect and call it from inside
    useEffect(()=>{
        getUserInfo()
    }, [])
 
 
+    const handleDName = (e)=>{
+       setDisplayName(e.target.value)
+    }
+
+    const handleEmail = (e)=>{
+        setUserEmail(e.target.value)
+    }
+
    const userData = user ?
    (<div>
        <h1>Profile</h1>
-       <p>Nickname: {displayName}</p>
-       <p>Email: {userEmail}</p>
+       <p>Nickname: {displayName} <input type={"text"} name={"username"} value={displayName} onChange={handleDName} /></p>
+       <p>Email: {userEmail}  <input type={"text"} name={"useremail"} value={userEmail} onChange={handleEmail} /></p>
        <p>YT URLs: {bg_urls}</p>
        <p>Privacy Enabled: {privacyMode}</p>
        <label htmlFor={"privacy"}>Privacy Mode</label>
