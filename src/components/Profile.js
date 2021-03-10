@@ -12,6 +12,7 @@ const Profile = (props) => {
    const [user_fields, setUser_fields] = useState([])
    const [privacyMode, setPrivacyMode] = useState(0)
    const [tempUrl, setTempUrl] = useState("")
+   const [tempField, setTempField] = useState("")
    const expirationTime = new Date(exp * 1000);
    let currentTime = Date.now();
 
@@ -64,6 +65,17 @@ const Profile = (props) => {
        setTempUrl("")
    }
 
+   const handleTempField = (e) =>{
+       setTempField(e.target.value)
+   }
+
+   const addField = (e) =>{
+       let tempList = [...user_fields]
+       tempList.push(tempField)
+       setUser_fields([...tempList])
+       setTempField("")
+   }
+
    const userData = user ?
    (<div>
        <h1>Profile</h1>
@@ -73,6 +85,10 @@ const Profile = (props) => {
            {bg_urls.join("<br />")}
        </div>
        <p>Add YT URL: <input type={"text"} name={"newUrl"} value={tempUrl} onChange={handleTempURL}/> <button onClick={addURL}>Add URL</button> </p>
+       <div>
+           {user_fields.join("<br />")}
+       </div>
+       <p>Add Custom Field: <input type={"text"} name={"newField"} value={tempField} onChange={handleTempField}/> <button onClick={addField}>Add Field</button> </p>
        <p>Privacy Enabled: {privacyMode}</p>
        <label htmlFor={"privacy"}>Privacy Mode</label>
        <select name={"privacy"} onChange={handlePrivacy}>
