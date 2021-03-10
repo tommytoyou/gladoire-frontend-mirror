@@ -1,9 +1,16 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+const { REACT_APP_SERVER_URL } = process.env;
 
 const Profile = (props) => {
    const { handleLogout, user } = props;
    const { id, name, email, exp } = user;
+   const [displayName, setDisplayName] = useState("")
+   const [userEmail, setUserEmail] = useState("")
+   const [bg_urls, setBg_urls] = useState([])
+   const [user_fields, setUser_fields] = useState([])
+   const [privacyMode, setPrivacyMode] = useState(0)
    const expirationTime = new Date(exp * 1000);
    let currentTime = Date.now();
 
@@ -12,13 +19,28 @@ const Profile = (props) => {
        handleLogout();
        alert('Session has ended. Please login to continue.');
    }
+    const getUserInfo = async()=>{
+        let userData = await axios.get(`${REACT_APP_SERVER_URL}/users/profile`)
+        setDisplayName(userData.data.display_name)
+        setUserEmail(userData.data.email)
+        setBg_urls(userData.data.bg_urls)
+        setUser_fields(userData.data.custom_fields)
+        setPrivacyMode(userData.data.is_hidden)
+
+    }
+
+   useEffect(()=>{
+       getUserInfo()
+   }, [])
+
 
    const userData = user ?
    (<div>
        <h1>Profile</h1>
-       <p>Name: {name}</p>
-       <p>Email: {email}</p>
-       <p>ID: {id}</p>
+       <p>Nickname: {displayName}</p>
+       <p>Email: {userEmail}</p>
+       <p>YT URLs: {bg_urls}</p>
+       <p>Privacy Enabled: {privacyMode}</p>
    </div>) : <h2>Loading...</h2>
 
     const errorDiv = () => {
