@@ -11,6 +11,7 @@ const Profile = (props) => {
    const [bg_urls, setBg_urls] = useState([])
    const [user_fields, setUser_fields] = useState([])
    const [privacyMode, setPrivacyMode] = useState(0)
+   const [tempUrl, setTempUrl] = useState("")
    const expirationTime = new Date(exp * 1000);
    let currentTime = Date.now();
 
@@ -48,15 +49,33 @@ const Profile = (props) => {
         setUserEmail(e.target.value)
     }
 
+   const handlePrivacy = (e) =>{
+       setPrivacyMode(e.target.value)
+   }
+
+   const handleTempURL = (e) =>{
+       setTempUrl(e.target.value)
+   }
+
+   const addURL = (e) =>{
+       let tempList = [...bg_urls]
+       tempList.push(tempUrl)
+       setBg_urls([...tempList])
+       setTempUrl("")
+   }
+
    const userData = user ?
    (<div>
        <h1>Profile</h1>
        <p>Nickname: {displayName} <input type={"text"} name={"username"} value={displayName} onChange={handleDName} /></p>
        <p>Email: {userEmail}  <input type={"text"} name={"useremail"} value={userEmail} onChange={handleEmail} /></p>
-       <p>YT URLs: {bg_urls}</p>
+       <div>
+           {bg_urls.join("<br />")}
+       </div>
+       <p>Add YT URL: <input type={"text"} name={"newUrl"} value={tempUrl} onChange={handleTempURL}/> <button onClick={addURL}>Add URL</button> </p>
        <p>Privacy Enabled: {privacyMode}</p>
        <label htmlFor={"privacy"}>Privacy Mode</label>
-       <select name={"privacy"} >
+       <select name={"privacy"} onChange={handlePrivacy}>
            <option value={0} selected={privacyMode == 0}>Off</option>
            <option value={1} selected={privacyMode == 1}>On</option>
        </select>
