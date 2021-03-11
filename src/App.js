@@ -15,6 +15,7 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Welcome from './components/Welcome';
+import Journal from './components/Journal';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   let token = localStorage.getItem('jwtToken');
@@ -60,7 +61,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>MERN Authentication</h1>
+      <h1>Gladoire</h1>
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
       <div className="container mt-5">
         <Switch>
@@ -72,6 +73,7 @@ function App() {
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
           <Route exact path="/" component={Welcome} />
           <Route path="/about" component={About} />
+          <Route path="/journal" component={Journal} />
         </Switch>
       </div>
       <Footer />

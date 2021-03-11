@@ -5,14 +5,18 @@ import axios from 'axios'
 
 
 const Journal = (props) => {
-    const { } = props.journal;
+    const { user, date, duration,  location, notes} = props.journal;
 
     return (
         <div className="Journal">
-            <ul>
-                <li>: {}</li>
+        <ul>
+        <li>Journal: {user}</li>
+        <li>Journal:Today: {date}</li>
+        <li>Journal:Time Elapsed: {duration}</li>
+        <li>Journal: {location}</li>
+        <li>Journal: {notes}</li>
+        </ul>
 
-            </ul>
         </div>
     )
 }
