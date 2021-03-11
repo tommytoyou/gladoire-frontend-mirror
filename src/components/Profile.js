@@ -92,8 +92,8 @@ const Profile = (props) => {
        <p>Privacy Enabled: {privacyMode}</p>
        <label htmlFor={"privacy"}>Privacy Mode</label>
        <select name={"privacy"} onChange={handlePrivacy}>
-           <option value={0} selected={privacyMode == 0}>Off</option>
-           <option value={1} selected={privacyMode == 1}>On</option>
+           <option value={0} selected={privacyMode === 0}>Off</option>
+           <option value={1} selected={privacyMode === 1}>On</option>
        </select>
    </div>) : <h2>Loading...</h2>
 

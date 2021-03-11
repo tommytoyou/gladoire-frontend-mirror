@@ -32,7 +32,7 @@ const Signup = () => {
         // make sure password and confirm password are equal
         // password length >= 8 characters
         if (password === confirmPassword && password.length >= 8) {
-            const newUser = { name, email, password };
+            const newUser = { display_name: name, email, password };
             axios.post(`${REACT_APP_SERVER_URL}/users/register`, newUser)
             .then(response => {
                 console.log('===> Yay, new user');
