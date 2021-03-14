@@ -61,7 +61,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 class="text-center">Calm and Clear: Samadhi and Vipassana Meditation</h1>
+      <h1 className="text-center">Calm and Clear: Samadhi and Vipassana Meditation</h1>
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
       <div className="container mt-5">
         <Switch>

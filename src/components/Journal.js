@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import {useState, useEffect} from 'react';
 import JournalForm from './JournalForm';
 
-const Journal = {props} => {
+const Journal = (props) => {
     const [complete, setComplete] = useState(Boolean())
     const [formStyle, setFormStyle] = useState({ display: 'none'})
     const [bodyStyle, setBodyStyle] = useState({})
@@ -16,7 +17,7 @@ const toggleBodyForm = () => {
     }
 }
 
-const deleteClickedJournal = () = props.deleteJournal(props.journal)
+const deleteClickedJournal = () => props.deleteJournal(props.journal)
 
 return (
     <li data-journals-index={props.journal.id}>
@@ -31,7 +32,7 @@ return (
         toggleBodyForm={toggleBodyForm}
         />
         </li>
-)
-
+    )
+}
 
 export default Journal;

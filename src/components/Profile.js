@@ -82,19 +82,13 @@ const Profile = (props) => {
        <p>Nickname: {displayName} <input type={"text"} name={"username"} value={displayName} onChange={handleDName} /></p>
        <p>Email: {userEmail}  <input type={"text"} name={"useremail"} value={userEmail} onChange={handleEmail} /></p>
        <div>
-           {bg_urls.join("<br />")}
+
        </div>
-       <p>Add YT URL: <input type={"text"} name={"newUrl"} value={tempUrl} onChange={handleTempURL}/> <button onClick={addURL}>Add URL</button> </p>
+      
        <div>
            {user_fields.join("<br />")}
        </div>
-       <p>Add Custom Field: <input type={"text"} name={"newField"} value={tempField} onChange={handleTempField}/> <button onClick={addField}>Add Field</button> </p>
-       <p>Privacy Enabled: {privacyMode}</p>
-       <label htmlFor={"privacy"}>Privacy Mode</label>
-       <select name={"privacy"} onChange={handlePrivacy}>
-           <option value={0} selected={privacyMode === 0}>Off</option>
-           <option value={1} selected={privacyMode === 1}>On</option>
-       </select>
+
    </div>) : <h2>Loading...</h2>
 
     const errorDiv = () => {
