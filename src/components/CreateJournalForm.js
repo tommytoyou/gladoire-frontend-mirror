@@ -1,6 +1,6 @@
-import React, { useState, useEffect} from 'react';
+import { useState } from 'react';
 
-const CreateJournal = (props) => {
+const CreateJournalForm = (props) => {
     const [journal, setJournal] = useState('');
 
     const onInputChange = (e)=> {
@@ -8,7 +8,7 @@ const CreateJournal = (props) => {
     }
     const onFormSubmit = (e)=> {
         e.preventDefault()
-        props.createJournal(journal)
+        props.createForm(journal)
         setJournal('')
     }
     return (
@@ -29,4 +29,4 @@ const CreateJournal = (props) => {
 }
 
 
-export default CreateJournal;
+export default CreateJournalForm;
