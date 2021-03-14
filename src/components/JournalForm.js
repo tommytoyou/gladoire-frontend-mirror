@@ -1,7 +1,8 @@
 import { useState, useEffect} from 'react';
+import CreateJournalForm from './CreateJournalForm';
 
 function JournalForm(props) {
-    const [journal, setJournal] = useState()
+    const [journal, setJournal] = useState({})
 
     function onChange(e) {
         setJournal(e.target.value)
@@ -15,7 +16,7 @@ function JournalForm(props) {
     }
 
     useEffect(()=> {
-        setJournal(props.todo.body)
+        setJournal(props.journal.body)
     }, [])
     return (
       <div style={props.style} className='journalForm'>

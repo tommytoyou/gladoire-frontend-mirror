@@ -13,7 +13,10 @@ const Journals = (props) => {
         )
     })
 
-    return <ul>{journals}</ul>
+    return <div>
+        <h1>I live for TA hours!!! </h1>
+        <ul>{journals}</ul>
+    </div>
 }
 
 export default Journals;

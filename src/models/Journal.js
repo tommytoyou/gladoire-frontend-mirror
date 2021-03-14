@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 
+const endPoint ="http://localhost:9393/api/v1/journal"
 
 
 class JournalModel {
@@ -15,7 +16,7 @@ class JournalModel {
     }
     
     static delete = (journal) => {
-        let request = axios.delete(`${endPOint}/${journal._id}`)
+        let request = axios.delete(`${endPoint}/${journal._id}`)
         return request
     }
 
