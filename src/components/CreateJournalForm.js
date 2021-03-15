@@ -12,15 +12,15 @@ const CreateJournalForm = (props) => {
     }
     const createJournal = async (journal) => {
         let newJournal = {
-            body: journal,
+            content: journal,
             completed: false,
         }
-        console.log('This is the create journal function')
+        console.log('This is the create journal function', newJournal)
 
-        const anotherJournal = await JournalModel.create(newJournal)
-        let newJournals = [...journals, anotherJournal.data]
-        setJournals(newJournals)
-        setJournalCount(journalCount + 1)
+        // const anotherJournal = await JournalModel.create(newJournal)
+        // let newJournals = [...journals, anotherJournal.data]
+        // setJournals(newJournal)
+        // setJournalCount(journalCount + 1)
     }
 
     const onFormSubmit = (e)=> {
@@ -59,6 +59,10 @@ const CreateJournalForm = (props) => {
                 <button type="submit"  id="addJournal" className="btn">Save For Later</button>
                 </fieldset>
             </form>
+            </div>
+            <br />
+            <div>
+
             </div>
         </div>
         

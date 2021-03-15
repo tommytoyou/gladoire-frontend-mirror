@@ -1,4 +1,5 @@
 import Journal from './Journal';
+import JournalContainer from "../components/containers/JournalsContainer"
 
 const Journals = (props) => {
 
@@ -15,6 +16,7 @@ const Journals = (props) => {
 
     return <div>
         <h1>I live for TA hours!!! </h1>
+        <JournalContainer/>
         <ul>{journals}</ul>
     </div>
 }
