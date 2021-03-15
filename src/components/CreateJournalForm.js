@@ -39,17 +39,29 @@ const CreateJournalForm = (props) => {
     // }
     return (
         <div>
-            <form onSubmit={ onFormSubmit } id="taskForm">
-                <input
-                onChange={ onInputChange }
+
+                <div>
+                <legend class="text-center">What did I learn today?</legend>
+                <form>
+                
+                <fieldset>
+
+                 <textarea onSubmit={ onFormSubmit }  name="content" 
+                 input onChange={ onInputChange }
                 type="text" id="newJournalDescription"
                 placeholder="What did I Learn Today?"
                 value={journal}
-                />
+                
+                 class="form-control" id="exampleFormControlTextarea1" rows="9"></textarea>
+                <br />
+                <div>
+                </div>              
                 <button type="submit"  id="addJournal" className="btn">Save For Later</button>
-
+                </fieldset>
             </form>
+            </div>
         </div>
+        
     )
 
 }
