@@ -13,7 +13,7 @@ const Journals = (props) => {
             />
         )
     })
-
+    
     return <div>
         <h1>I live for TA hours!!! </h1>
         <JournalContainer/>

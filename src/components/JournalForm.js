@@ -31,6 +31,7 @@ function JournalForm(props) {
              {props.buttonName}
          </button>
        </form>
+       
       </div>
 
     )

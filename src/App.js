@@ -30,7 +30,7 @@ function App() {
   // Set state values
   const [currentUser, setCurrentUser] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(true);
-
+  const isBackgroundsandybrown = true;
  
   useEffect(() => {
     let token;
@@ -62,6 +62,9 @@ function App() {
 
   return (
     <div className="App">
+     <div className={isBackgroundsandybrown ? 'background-sandybrown' : 'background-sandybrown'} />
+     <div style={{ backgroundImage: "url(/image.png)" }}>
+</div>
       <h1 className="text-center">Calm and Clear: Samadhi and Vipassana Meditation</h1>
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
       <div className="container mt-5">

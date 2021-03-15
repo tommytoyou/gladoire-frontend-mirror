@@ -10,6 +10,10 @@ const CreateJournalForm = (props) => {
     const onInputChange = (e)=> {
         setJournal( e.target.value )
     }
+    const listOfJournals = journals.map((journal, index) => {
+        console.log(journal)
+        return journals
+    })
     const createJournal = async (journal) => {
         let newJournal = {
             content: journal,
@@ -17,10 +21,10 @@ const CreateJournalForm = (props) => {
         }
         console.log('This is the create journal function', newJournal)
 
-        // const anotherJournal = await JournalModel.create(newJournal)
-        // let newJournals = [...journals, anotherJournal.data]
-        // setJournals(newJournal)
-        // setJournalCount(journalCount + 1)
+        const anotherJournal = await JournalModel.create(newJournal)
+        let newJournals = [...journals, anotherJournal.data]
+        setJournals(newJournals)
+        setJournalCount(journalCount + 1)
     }
 
     const onFormSubmit = (e)=> {
@@ -41,7 +45,7 @@ const CreateJournalForm = (props) => {
         <div>
 
                 <div>
-                <legend class="text-center">What did I learn today?</legend>
+                <legend class="text-center">Today's Meditations?</legend>
                 <form>
                 
                 <fieldset>
@@ -49,7 +53,7 @@ const CreateJournalForm = (props) => {
                  <textarea onSubmit={ onFormSubmit }  name="content" 
                  input onChange={ onInputChange }
                 type="text" id="newJournalDescription"
-                placeholder="What did I Learn Today?"
+                placeholder="Awareness is ephemeral."
                 value={journal}
                 
                  class="form-control" id="exampleFormControlTextarea1" rows="9"></textarea>
@@ -62,7 +66,7 @@ const CreateJournalForm = (props) => {
             </div>
             <br />
             <div>
-
+            <ul>{listOfJournals}</ul>
             </div>
         </div>
         

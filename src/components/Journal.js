@@ -1,6 +1,9 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import JournalForm from './JournalForm';
+import JournalsContainer from './containers/JournalsContainer' 
+import Journals from './Journals' 
+
 
 const Journal = (props) => {
     const [complete, setComplete] = useState(Boolean())
@@ -31,6 +34,8 @@ return (
         onUpdateJournal={props.onUpdateJournal}
         toggleBodyForm={toggleBodyForm}
         />
+        <JournalsContainer />
+        <Journals />
         </li>
     )
 }
